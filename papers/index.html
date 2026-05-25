@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QHDALabs Papers</title>
+</head>
+<body>
+  <h1>QHDALabs Papers</h1>
+  <div id="papers"></div>
+
+  <script>
+    const papers = [
+      "https://raw.githubusercontent.com/qhdalabs/QMNet/main/paper.json"
+    ];
+
+    async function loadPapers() {
+      const container = document.getElementById("papers");
+
+      for (const url of papers) {
+        const res = await fetch(url);
+        const paper = await res.json();
+
+        const div = document.createElement("div");
+
+        div.innerHTML = `
+          <h2>${paper.title}</h2>
+          <p>${paper.abstract}</p>
+          <a href="${paper.repo}">Repository</a>
+        `;
+
+        container.appendChild(div);
+      }
+    }
+
+    loadPapers();
+  </script>
+</body>
+</html>
