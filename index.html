@@ -129,7 +129,7 @@
   .row .status.active{color:var(--accent)}
 
   /* applied systems cards */
-  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
   .card{
     background:var(--card);border:1px solid var(--line);border-radius:10px;
     padding:30px;transition:border-color .15s,transform .15s;
@@ -294,41 +294,57 @@
     <section id="research">
       <div class="sec-head">
         <h2>Research lines</h2>
-        <span class="count mono">04 active programs</span>
+        <span class="count mono">06 public programs</span>
       </div>
       <div class="index">
         <a class="row" href="https://github.com/QHDALabs/qmnet">
           <span class="id">QHDA-QM-01</span>
           <span>
             <span class="name">qmnet — Measurement-Fueled Conditional Bridges</span>
-            <span class="desc">Graph-state echo experiments in Qiskit. Conditional CZ bridges driven by mid-circuit measurement; quantifying which bridge topologies disrupt echo return, and by how much.</span>
+            <span class="desc">Graph-state echo experiments in Qiskit. Conditional CZ bridges driven by mid-circuit measurement; quantifying which bridge topologies disrupt echo return. Home of the RQTE paper — encryption from quantum measurement trajectories.</span>
           </span>
           <span class="status active">Active</span>
         </a>
-        <a class="row" href="https://github.com/QHDALabs/RQTE">
-          <span class="id">QHDA-CR-02</span>
-          <span>
-            <span class="name">RQTE — Relational Quantum Temporal Encryption</span>
-            <span class="desc">Cryptographic construction using quantum measurement trajectories as key material, with three classified irreversibility regimes and timeline-entropy analysis.</span>
-          </span>
-          <span class="status active">Active</span>
-        </a>
-        <a class="row" href="https://github.com/QHDALabs/RTANA">
-          <span class="id">QHDA-AI-03</span>
+        <a class="row" href="https://github.com/QHDALabs/QHDALabs-RTANA">
+          <span class="id">QHDA-AI-02</span>
           <span>
             <span class="name">RTANA — Relational Temporal Awareness in Neural Architectures</span>
-            <span class="desc">Qiskit event generation coupled to recurrent networks: do distinct quantum measurement histories produce meaningfully distinct hidden-state representations?</span>
+            <span class="desc">Can a neural system have an internal relational clock? Qiskit event generation coupled to recurrent networks: do distinct measurement histories produce meaningfully distinct hidden-state representations?</span>
           </span>
           <span class="status active">Active</span>
         </a>
-        <div class="row">
-          <span class="id">QHDA-CO-04</span>
+        <a class="row" href="https://github.com/QHDALabs/QHDALabs-XSIG">
+          <span class="id">QHDA-CO-03</span>
           <span>
             <span class="name">XSIG — Cross-Cycle Structural Information Geometry</span>
-            <span class="desc">Quantum-algorithmic search for non-random structural signatures in cosmological data, framed against Conformal Cyclic Cosmology. Pipeline under iteration; open issues tracked publicly.</span>
+            <span class="desc">Quantum-algorithmic search for non-random structural signatures in cosmological data, framed against Conformal Cyclic Cosmology. Pipeline under iteration; failure modes and open issues tracked publicly.</span>
           </span>
           <span class="status">In development</span>
-        </div>
+        </a>
+        <a class="row" href="https://github.com/QHDALabs/QHDALabs-Universe">
+          <span class="id">QHDA-CO-04</span>
+          <span>
+            <span class="name">Universe — Precision Cosmology &amp; Emergent Systems</span>
+            <span class="desc">Research initiative for precision cosmology and emergent systems; observational-data groundwork supporting the XSIG program.</span>
+          </span>
+          <span class="status">Exploratory</span>
+        </a>
+        <a class="row" href="https://github.com/QHDALabs/qhda-coherence-bridge">
+          <span class="id">QHDA-TH-05</span>
+          <span>
+            <span class="name">Coherence Bridge</span>
+            <span class="desc">Coherence-layer abstraction between relational quantum models and executable substrates — the connective tissue between theory repositories and runnable code.</span>
+          </span>
+          <span class="status">Exploratory</span>
+        </a>
+        <a class="row" href="https://github.com/QHDALabs/Multiverse-Theory">
+          <span class="id">QHDA-TH-06</span>
+          <span>
+            <span class="name">Multiverse Theory</span>
+            <span class="desc">Theoretical notes and TeX manuscripts on multiverse-adjacent frameworks; speculative groundwork, clearly separated from the experimental programs above.</span>
+          </span>
+          <span class="status">Exploratory</span>
+        </a>
       </div>
     </section>
 
@@ -337,15 +353,20 @@
         <h2>Applied systems &amp; policy</h2>
       </div>
       <div class="cards">
-        <div class="card">
+        <a class="card" href="https://github.com/QHDALabs/QHDALabs-wildfire-risk-pl">
           <span class="tag">Operational system</span>
           <h3>Wildfire Risk PL</h3>
-          <p>Modular wildfire-risk pipeline for 33 forest districts in Lower Silesia: spatial topology, Sentinel-2 NDWI, a quantum temporal encoder, and interpretable per-layer risk maps designed for foresters — not a single opaque score.</p>
-        </div>
+          <p>Real-time wildfire-risk prediction for Poland: 33 forest districts in Lower Silesia, spatial topology, Sentinel-2 NDWI, a quantum temporal encoder, and interpretable per-layer risk maps designed for foresters — not a single opaque score.</p>
+        </a>
         <a class="card" href="https://github.com/QHDALabs/QHDALabs-Genesis-Protocol">
           <span class="tag">Regulatory engagement</span>
           <h3>Genesis Protocol</h3>
-          <p>Formal gap filings submitted to the EU AI Act Service Desk — public AI incident register, graduated impact proportionality, equitable access to frontier AI — published in full, alongside a bilingual AI–Human Partnership Manifesto.</p>
+          <p>Formal gap filings submitted to the EU AI Act Service Desk — public AI incident register, graduated impact proportionality, equitable access to frontier AI — published in full, alongside a bilingual AI–Human Partnership Manifesto and the Q-HSM safe-by-design concept.</p>
+        </a>
+        <a class="card" href="https://github.com/QHDALabs/QHDALabs">
+          <span class="tag">Strategic foresight</span>
+          <h3>Strategic Futures Lab</h3>
+          <p>The lab's long-horizon workspace: scenario work and strategic framing that connects the quantum research lines with the applied and policy tracks.</p>
         </a>
       </div>
     </section>
