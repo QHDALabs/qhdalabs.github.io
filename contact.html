@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — QHDALabs</title>
+<meta name="description" content="Contact information for QHDALabs — independent quantum research laboratory — and Krzysztof Banasiewicz (krzyshtof.com)." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,300&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFBFC;
+    --ink:#14171C;
+    --muted:#5A6472;
+    --faint:#8B95A3;
+    --accent:#3D43B4;
+    --accent-soft:#E9EAF8;
+    --line:#E3E7EC;
+    --card:#FFFFFF;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'IBM Plex Sans',system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  .mono{font-family:'IBM Plex Mono',monospace}
+
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+
+  /* ── masthead ───────────────────────────────────────── */
+  header.site{
+    border-bottom:1px solid var(--line);
+    padding:20px 0;
+  }
+  .masthead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .wordmark{font-family:'Spectral',serif;font-weight:600;font-size:20px;letter-spacing:.01em}
+  .wordmark .q{color:var(--accent)}
+  nav.top{display:flex;gap:28px;font-size:14px}
+  nav.top a{color:var(--muted);transition:color .15s}
+  nav.top a:hover{color:var(--ink)}
+  nav.top a[aria-current="page"]{color:var(--accent)}
+
+  /* ── page head ──────────────────────────────────────── */
+  .page-head{padding:72px 0 48px;border-bottom:1px solid var(--line)}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--accent);margin-bottom:20px;
+  }
+  h1{
+    font-family:'Spectral',serif;font-weight:300;
+    font-size:clamp(32px,4vw,46px);line-height:1.16;letter-spacing:-.01em;
+    margin-bottom:18px;
+  }
+  .page-head p.lede{font-size:17px;color:var(--muted);max-width:56ch}
+
+  /* ── contact cards ──────────────────────────────────── */
+  section{padding:64px 0}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:34px;
+  }
+  .card .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--accent);display:block;margin-bottom:14px;
+  }
+  .card h2{font-family:'Spectral',serif;font-weight:600;font-size:22px;margin-bottom:8px}
+  .card p.about{font-size:14.5px;color:var(--muted);margin-bottom:26px}
+
+  dl.contact{border-top:1px solid var(--line)}
+  dl.contact > div{
+    display:grid;grid-template-columns:110px minmax(0,1fr);
+    gap:16px;align-items:baseline;
+    padding:13px 0;border-bottom:1px solid var(--line);
+  }
+  dl.contact dt{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--faint);
+  }
+  dl.contact dd{font-size:14.5px}
+  dl.contact dd a{color:var(--accent);border-bottom:1px solid transparent;transition:border-color .15s}
+  dl.contact dd a:hover{border-bottom-color:var(--accent)}
+
+  .note{
+    margin-top:44px;padding:22px 26px;
+    background:var(--accent-soft);border-radius:8px;
+    font-size:14px;color:var(--muted);max-width:72ch;
+  }
+  .note a{color:var(--accent)}
+  .note a:hover{text-decoration:underline}
+
+  /* ── footer ─────────────────────────────────────────── */
+  footer{border-top:1px solid var(--line);padding:40px 0 48px}
+  footer .links{display:flex;gap:24px;font-size:14px;flex-wrap:wrap}
+  footer .links a{color:var(--muted);transition:color .15s}
+  footer .links a:hover{color:var(--ink)}
+  footer .fineprint{
+    margin-top:28px;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint);
+  }
+
+  @media (max-width:860px){
+    .page-head{padding:48px 0 40px}
+    section{padding:48px 0}
+    .cards{grid-template-columns:1fr}
+    dl.contact > div{grid-template-columns:1fr;gap:4px}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap masthead">
+    <a href="/" class="wordmark"><span class="q">Q</span>HDALabs</a>
+    <nav class="top" aria-label="Main">
+      <a href="/#research">Research</a>
+      <a href="/#applied">Applied systems</a>
+      <a href="https://qhdalabs.github.io/papers/">Papers</a>
+      <a href="https://github.com/QHDALabs">GitHub</a>
+      <a href="/contact.html" aria-current="page">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="page-head">
+      <div class="eyebrow">Get in touch</div>
+      <h1>Contact</h1>
+      <p class="lede">
+        Questions about the research programs, collaboration proposals, or anything
+        related to the lab's published work — the channels below are the best way to reach us.
+      </p>
+    </div>
+
+    <section>
+      <div class="cards">
+        <div class="card">
+          <span class="tag">Research laboratory</span>
+          <h2><span style="color:var(--accent)">Q</span>HDALabs</h2>
+          <p class="about">
+            Independent research in quantum information, measurement-driven cryptography,
+            and applied AI systems. Open methods, documented failure modes, public code.
+          </p>
+          <dl class="contact">
+            <div>
+              <dt>Website</dt>
+              <dd><a href="https://qhdalabs.github.io">qhdalabs.github.io</a></dd>
+            </div>
+            <div>
+              <dt>GitHub</dt>
+              <dd><a href="https://github.com/QHDALabs">github.com/QHDALabs</a></dd>
+            </div>
+            <div>
+              <dt>Papers</dt>
+              <dd><a href="https://qhdalabs.github.io/papers/">qhdalabs.github.io/papers</a></dd>
+            </div>
+            <div>
+              <dt>E-mail</dt>
+              <dd><a href="mailto:contact@qhdalabs.com">contact@qhdalabs.com</a></dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd>Poland · Netherlands · Belgium</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="card">
+          <span class="tag">Founder · personal site</span>
+          <h2>krzyshtof.com</h2>
+          <p class="about">
+            Krzysztof Banasiewicz — founder of QHDALabs
+          </p>
+          <dl class="contact">
+            <div>
+              <dt>Website</dt>
+              <dd><a href="https://krzyshtof.com">krzyshtof.com</a></dd>
+            </div>
+            <div>
+              <dt>About</dt>
+              <dd><a href="https://krzyshtof.com/about/">krzyshtof.com/about</a></dd>
+            </div>
+            <!-- TODO: uncomment and fill in a public personal e-mail address
+            <div>
+              <dt>E-mail</dt>
+              <dd><a href="mailto:ADDRESS">ADDRESS</a></dd>
+            </div>
+            -->
+            <div>
+              <dt>Location</dt>
+              <dd>Poland</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="note">
+        For technical questions about a specific research program, the fastest route is
+        opening an issue in the relevant repository on
+        <a href="https://github.com/QHDALabs">github.com/QHDALabs</a> — discussions there
+        stay public and citable, in line with the lab's open-methods principle.
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav class="links" aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="https://qhdalabs.github.io/papers/">Papers</a>
+      <a href="https://github.com/QHDALabs">GitHub</a>
+      <a href="https://krzyshtof.com">krzyshtof.com</a>
+    </nav>
+    <div class="fineprint">
+      © 2026 QHDALabs · All research code and findings published under open licenses, per repository.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
