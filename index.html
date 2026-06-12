@@ -5,9 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>QHDALabs — Independent Quantum Research</title>
 <meta name="description" content="QHDALabs — independent research in quantum information, measurement-driven cryptography, and applied AI systems. Open methods, documented failure modes, public code." />
+<meta property="og:title" content="QHDALabs — Independent Quantum Research" />
+<meta property="og:description" content="Quantum information, measured honestly. Open methods, documented failure modes, public code." />
+<meta property="og:image" content="https://qhdalabs.github.io/assets/img/rtana-mandala.jpg" />
+<meta property="og:url" content="https://qhdalabs.github.io/" />
+<meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,300&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
 <style>
   :root{
     --paper:#FAFBFC;
@@ -41,11 +47,20 @@
     padding:20px 0;
   }
   .masthead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
-  .wordmark{font-family:'Spectral',serif;font-weight:600;font-size:20px;letter-spacing:.01em}
+  .wordmark{font-family:'Spectral',serif;font-weight:600;font-size:20px;letter-spacing:.01em;display:inline-flex;align-items:center;gap:9px}
   .wordmark .q{color:var(--accent)}
+  .wordmark svg{width:24px;height:24px;flex:none}
   nav.top{display:flex;gap:28px;font-size:14px}
   nav.top a{color:var(--muted);transition:color .15s}
   nav.top a:hover{color:var(--ink)}
+
+  /* ── interference banner ────────────────────────────── */
+  .banner{
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,var(--card) 0,var(--paper) 100%);
+    overflow:hidden;
+  }
+  .banner svg{display:block;width:100%;height:110px}
 
   /* ── hero ───────────────────────────────────────────── */
   .hero{padding:88px 0 64px;border-bottom:1px solid var(--line)}
@@ -141,6 +156,27 @@
   }
   .card h3{font-family:'Spectral',serif;font-weight:600;font-size:19px;margin-bottom:10px}
   .card p{font-size:14.5px;color:var(--muted)}
+  .card .card-img{
+    display:block;margin:-30px -30px 22px;
+    border-bottom:1px solid var(--line);border-radius:10px 10px 0 0;
+    overflow:hidden;
+  }
+  .card .card-img img{display:block;width:100%;height:150px;object-fit:cover}
+
+  /* visual archive gallery */
+  .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  a.shot{
+    display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;
+    overflow:hidden;transition:border-color .15s,transform .15s;
+  }
+  a.shot:hover{border-color:var(--faint);transform:translateY(-2px)}
+  .shot img{display:block;width:100%;height:240px;object-fit:cover}
+  .shot .cap{
+    display:block;padding:14px 20px;
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);
+    letter-spacing:.02em;
+  }
+  .shot .cap .id{color:var(--faint);margin-right:12px}
 
   /* ── footer ─────────────────────────────────────────── */
   footer{
@@ -173,9 +209,12 @@
     animation:pulse-travel 4.5s cubic-bezier(.4,0,.4,1) infinite;
   }
   .node-3{animation:node-flash 4.5s ease infinite}
+  @keyframes dash-flow{to{stroke-dashoffset:-160}}
+  .wave-flow{stroke-dasharray:6 10;animation:dash-flow 9s linear infinite}
   @media (prefers-reduced-motion:reduce){
-    .bridge-pulse,.node-3{animation:none}
+    .bridge-pulse,.node-3,.wave-flow{animation:none}
     .bridge-pulse{stroke-dasharray:none;opacity:.5}
+    .wave-flow{stroke-dasharray:none}
   }
 
   /* ── responsive ─────────────────────────────────────── */
@@ -189,6 +228,8 @@
     .row{grid-template-columns:1fr;gap:8px;padding:22px 0}
     .row .status{justify-self:start}
     .cards{grid-template-columns:1fr}
+    .gallery{grid-template-columns:1fr}
+    .shot img{height:200px}
     section{padding:52px 0}
   }
 </style>
@@ -197,7 +238,10 @@
 
 <header class="site">
   <div class="wrap masthead">
-    <a href="/" class="wordmark"><span class="q">Q</span>HDALabs</a>
+    <a href="/" class="wordmark">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="28" r="19" fill="none" stroke="#3D43B4" stroke-width="3"/><line x1="43.2" y1="43.4" x2="54" y2="54" stroke="#3D43B4" stroke-width="3" stroke-linecap="round"/><g fill="#FAFBFC" stroke="#14171C" stroke-width="2"><circle cx="32" cy="9" r="3.5"/><circle cx="50.1" cy="22.1" r="3.5"/><circle cx="43.2" cy="43.4" r="3.5"/><circle cx="20.8" cy="43.4" r="3.5"/><circle cx="13.9" cy="22.1" r="3.5"/></g><circle cx="54" cy="54" r="4" fill="#3D43B4"/></svg>
+      <span><span class="q">Q</span>HDALabs</span>
+    </a>
     <nav class="top" aria-label="Main">
       <a href="#research">Research</a>
       <a href="#applied">Applied systems</a>
@@ -207,6 +251,33 @@
     </nav>
   </div>
 </header>
+
+<div class="banner" aria-hidden="true">
+  <svg viewBox="0 0 1440 120" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <!-- interference waves -->
+    <path d="M-20 78 C 100 38, 220 118, 340 78 S 580 38, 700 78 S 940 118, 1060 78 S 1300 38, 1460 78" fill="none" stroke="#E3E7EC" stroke-width="1.5"/>
+    <path d="M-20 64 C 110 104, 230 24, 350 64 S 590 104, 710 64 S 950 24, 1070 64 S 1310 104, 1460 64" fill="none" stroke="#D9DBF2" stroke-width="1.5"/>
+    <path class="wave-flow" d="M-20 71 C 105 51, 225 91, 345 71 S 585 51, 705 71 S 945 91, 1065 71 S 1305 51, 1460 71" fill="none" stroke="#3D43B4" stroke-width="1.6" opacity=".55"/>
+    <!-- conditional bridge -->
+    <path d="M 600 78 C 600 18, 840 18, 840 78" fill="none" stroke="#D9DBF2" stroke-width="1.5"/>
+    <path class="bridge-pulse" d="M 600 78 C 600 18, 840 18, 840 78" fill="none" stroke="#3D43B4" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- nodes -->
+    <g stroke="#14171C" stroke-width="1.5" fill="#FFFFFF">
+      <circle cx="170" cy="70" r="7"/>
+      <circle cx="380" cy="74" r="7" stroke="#3D43B4"/>
+      <circle cx="600" cy="78" r="7" stroke="#3D43B4"/>
+      <circle class="node-3" cx="840" cy="78" r="7" stroke="#3D43B4"/>
+      <circle cx="1060" cy="72" r="7"/>
+      <circle cx="1270" cy="66" r="7"/>
+    </g>
+    <!-- state labels -->
+    <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#8B95A3">
+      <text x="158" y="100">|&#968;&#10217;</text>
+      <text x="1252" y="96">&#10216;&#966;|</text>
+      <text x="720" y="30" fill="#3D43B4" text-anchor="middle">CZ</text>
+    </g>
+  </svg>
+</div>
 
 <main>
   <div class="wrap">
@@ -355,6 +426,7 @@
       </div>
       <div class="cards">
         <a class="card" href="https://github.com/QHDALabs/QHDALabs-wildfire-risk-pl">
+          <span class="card-img"><img src="/assets/img/wildfire-map.jpg" alt="Live wildfire-risk map of Poland — green, amber and red district markers over an OpenStreetMap base" loading="lazy"></span>
           <span class="tag">Operational system</span>
           <h3>Wildfire Risk PL</h3>
           <p>Real-time wildfire-risk prediction for Poland: 33 forest districts in Lower Silesia, spatial topology, Sentinel-2 NDWI, a quantum temporal encoder, and interpretable per-layer risk maps designed for foresters — not a single opaque score.</p>
@@ -371,13 +443,38 @@
         </a>
       </div>
     </section>
+
+    <section id="gallery">
+      <div class="sec-head">
+        <h2>From the lab</h2>
+        <span class="count mono">visual archive</span>
+      </div>
+      <div class="gallery">
+        <a class="shot" href="https://github.com/QHDALabs/QHDALabs-RTANA">
+          <img src="/assets/img/rtana-mandala.jpg" alt="RTANA emblem — a luminous five-node quantum ring suspended in a violet-blue field" loading="lazy">
+          <span class="cap"><span class="id">QHDA-AI-02</span>RTANA — the relational clock, rendered</span>
+        </a>
+        <a class="shot" href="https://github.com/QHDALabs/Multiverse-Theory">
+          <img src="/assets/img/psi-connection.jpg" alt="ψ-connection study — a dense multidimensional network sphere between ψ and φ" loading="lazy">
+          <span class="cap"><span class="id">QHDA-TH-06</span>ψ-connection — multidimensional network study</span>
+        </a>
+        <a class="shot" href="https://github.com/QHDALabs/QHDALabs-XSIG">
+          <img src="/assets/img/xsig-banner.jpg" alt="XSIG research banner — non-random correlation structure in CMB and WOS observables, framed against Conformal Cyclic Cosmology" loading="lazy">
+          <span class="cap"><span class="id">QHDA-CO-03</span>XSIG — the research question, framed</span>
+        </a>
+        <a class="shot" href="https://github.com/QHDALabs/QHDALabs-XSIG">
+          <img src="/assets/img/xsig-diagnostics.jpg" alt="XSIG v4 diagnostic panel — eight time-series and correlation plots from the cross-cycle pipeline" loading="lazy">
+          <span class="cap"><span class="id">QHDA-CO-03</span>XSIG v4 — cross-cycle diagnostics, published as-is</span>
+        </a>
+      </div>
+    </section>
   </div>
 </main>
 
 <footer>
   <div class="wrap" style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap">
     <div class="left">
-      <span class="wordmark"><span class="q">Q</span>HDALabs</span>
+      <span class="wordmark"><span><span class="q">Q</span>HDALabs</span></span>
       <p>Independent research in quantum information, cryptography, and applied AI systems. Poland · Netherlands · Belgium.</p>
     </div>
     <nav class="links" aria-label="Footer">
