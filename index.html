@@ -162,6 +162,7 @@
     overflow:hidden;
   }
   .card .card-img img{display:block;width:100%;height:150px;object-fit:cover}
+  .card .card-img svg{display:block;width:100%;height:150px;background:linear-gradient(180deg,#FFFFFF 0,var(--paper) 100%)}
 
   /* visual archive gallery */
   .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
@@ -177,6 +178,9 @@
     letter-spacing:.02em;
   }
   .shot .cap .id{color:var(--faint);margin-right:12px}
+  .shot.wide{grid-column:1/-1}
+  .shot.wide img{height:300px}
+  .shot img.crop-top{object-position:top}
 
   /* ── footer ─────────────────────────────────────────── */
   footer{
@@ -366,7 +370,7 @@
     <section id="research">
       <div class="sec-head">
         <h2>Research lines</h2>
-        <span class="count mono">06 public programs</span>
+        <span class="count mono">08 public programs</span>
       </div>
       <div class="index">
         <a class="row" href="https://github.com/QHDALabs/qmnet">
@@ -417,6 +421,22 @@
           </span>
           <span class="status">Exploratory</span>
         </a>
+        <a class="row" href="https://github.com/QHDALabs/QHDALabs-Axon">
+          <span class="id">QHDA-SN-07</span>
+          <span>
+            <span class="name">Axon — the Science Nervous System</span>
+            <span class="desc">Relational infrastructure over the scientific literature: the relation is the unit, and verification comes before discovery. Swanson-style ABC bridges with explicit nulls — including a pre-registered held-out test that failed, documented in the open. Built on qhda-core.</span>
+          </span>
+          <span class="status active">Active</span>
+        </a>
+        <a class="row" href="https://github.com/QHDALabs/qhda-core">
+          <span class="id">QHDA-LIB-08</span>
+          <span>
+            <span class="name">qhda-core — Shared Quantum-Relational Mechanisms</span>
+            <span class="desc">Four mechanisms distilled from qmnet, RTANA and XSIG — conditional CZ bridges, the Page–Wootters clock, the relational-state accumulator and the emergent clock — packaged as a reusable two-layer library: quantum (Qiskit) and relational (pure numpy).</span>
+          </span>
+          <span class="status">Infrastructure</span>
+        </a>
       </div>
     </section>
 
@@ -432,11 +452,58 @@
           <p>Real-time wildfire-risk prediction for Poland: 33 forest districts in Lower Silesia, spatial topology, Sentinel-2 NDWI, a quantum temporal encoder, and interpretable per-layer risk maps designed for foresters — not a single opaque score.</p>
         </a>
         <a class="card" href="https://github.com/QHDALabs/QHDALabs-Genesis-Protocol">
+          <span class="card-img" aria-hidden="true">
+            <svg viewBox="0 0 440 150" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <!-- consensus ring: many voices, one golden rule -->
+              <g stroke="#D9DBF2" stroke-width="1.2">
+                <line x1="220" y1="78" x2="220" y2="26"/>
+                <line x1="220" y1="78" x2="266" y2="41"/>
+                <line x1="220" y1="78" x2="285" y2="78"/>
+                <line x1="220" y1="78" x2="266" y2="115"/>
+                <line x1="220" y1="78" x2="220" y2="130"/>
+                <line x1="220" y1="78" x2="174" y2="115"/>
+                <line x1="220" y1="78" x2="155" y2="78"/>
+                <line x1="220" y1="78" x2="174" y2="41"/>
+              </g>
+              <circle cx="220" cy="78" r="30" fill="none" stroke="#E3E7EC" stroke-width="1.5"/>
+              <g fill="#FFFFFF" stroke="#14171C" stroke-width="1.5">
+                <circle cx="220" cy="26"  r="5"/>
+                <circle cx="266" cy="41"  r="5"/>
+                <circle cx="285" cy="78"  r="5" stroke="#3D43B4"/>
+                <circle cx="266" cy="115" r="5"/>
+                <circle cx="220" cy="130" r="5"/>
+                <circle cx="174" cy="115" r="5" stroke="#3D43B4"/>
+                <circle cx="155" cy="78"  r="5"/>
+                <circle cx="174" cy="41"  r="5"/>
+              </g>
+              <circle cx="220" cy="78" r="8" fill="#3D43B4"/>
+              <text x="330" y="82" font-family="IBM Plex Mono, monospace" font-size="11" fill="#8B95A3">Q-HSM</text>
+            </svg>
+          </span>
           <span class="tag">Regulatory engagement</span>
           <h3>Genesis Protocol</h3>
           <p>Formal gap filings submitted to the EU AI Act Service Desk — public AI incident register, graduated impact proportionality, equitable access to frontier AI — published in full, alongside a bilingual AI–Human Partnership Manifesto and the Q-HSM safe-by-design concept.</p>
         </a>
         <a class="card" href="https://github.com/QHDALabs/QHDALabs">
+          <span class="card-img" aria-hidden="true">
+            <svg viewBox="0 0 440 150" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <!-- scenario tree: one present, many futures -->
+              <path d="M 40 75 C 110 75, 130 40, 200 40 C 270 40, 290 22, 380 22" fill="none" stroke="#D9DBF2" stroke-width="1.5" stroke-dasharray="4 6"/>
+              <path d="M 40 75 C 110 75, 130 110, 200 110 C 270 110, 290 128, 380 128" fill="none" stroke="#D9DBF2" stroke-width="1.5" stroke-dasharray="4 6"/>
+              <path d="M 40 75 C 130 75, 200 75, 380 75" fill="none" stroke="#3D43B4" stroke-width="1.8" opacity=".65"/>
+              <path d="M 200 40 C 250 40, 270 58, 320 70" fill="none" stroke="#E3E7EC" stroke-width="1.2"/>
+              <g fill="#FFFFFF" stroke="#14171C" stroke-width="1.5">
+                <circle cx="40"  cy="75"  r="6" stroke="#3D43B4"/>
+                <circle cx="200" cy="40"  r="5"/>
+                <circle cx="200" cy="110" r="5"/>
+                <circle cx="380" cy="22"  r="5"/>
+                <circle cx="380" cy="128" r="5"/>
+              </g>
+              <circle cx="380" cy="75" r="6" fill="#3D43B4"/>
+              <text x="52" y="98" font-family="IBM Plex Mono, monospace" font-size="11" fill="#8B95A3">t&#8320;</text>
+              <text x="394" y="79" font-family="IBM Plex Mono, monospace" font-size="11" fill="#8B95A3">t&#8320;+n</text>
+            </svg>
+          </span>
           <span class="tag">Strategic foresight</span>
           <h3>Strategic Futures Lab</h3>
           <p>The lab's long-horizon workspace: scenario work and strategic framing that connects the quantum research lines with the applied and policy tracks.</p>
@@ -450,6 +517,10 @@
         <span class="count mono">visual archive</span>
       </div>
       <div class="gallery">
+        <a class="shot wide" href="https://github.com/QHDALabs/QHDALabs-Axon">
+          <img src="/assets/img/axon-banner.jpg" alt="Axon banner — a luminous neural web of scientific disciplines converging on a verification core, labelled Science Nervous System: perception, relations, verification, hypothesis" loading="lazy">
+          <span class="cap"><span class="id">QHDA-SN-07</span>Axon — AI proposes, method decides</span>
+        </a>
         <a class="shot" href="https://github.com/QHDALabs/QHDALabs-RTANA">
           <img src="/assets/img/rtana-mandala.jpg" alt="RTANA emblem — a luminous five-node quantum ring suspended in a violet-blue field" loading="lazy">
           <span class="cap"><span class="id">QHDA-AI-02</span>RTANA — the relational clock, rendered</span>
@@ -465,6 +536,14 @@
         <a class="shot" href="https://github.com/QHDALabs/QHDALabs-XSIG">
           <img src="/assets/img/xsig-diagnostics.jpg" alt="XSIG v4 diagnostic panel — eight time-series and correlation plots from the cross-cycle pipeline" loading="lazy">
           <span class="cap"><span class="id">QHDA-CO-03</span>XSIG v4 — cross-cycle diagnostics, published as-is</span>
+        </a>
+        <a class="shot" href="https://github.com/QHDALabs/QHDALabs-wildfire-risk-pl">
+          <img src="/assets/img/wildfire-v5.jpg" alt="Wildfire Risk v5 operational dashboard — dark map of Lower Silesia with colour-coded district risk nodes, a mycelium propagation network and a live district popup" loading="lazy">
+          <span class="cap"><span class="id">Applied</span>Wildfire Risk PL v5 — operational build, June 2026</span>
+        </a>
+        <a class="shot" href="https://github.com/QHDALabs/Multiverse-Theory">
+          <img class="crop-top" src="/assets/img/qtog-notebook.jpg" alt="Handwritten lab-notebook page — the wave function psi of t and r derived by hand in coloured ink" loading="lazy">
+          <span class="cap"><span class="id">QHDA-TH-06</span>&#968;(t,r) by hand — a page from the lab notebook</span>
         </a>
       </div>
     </section>
